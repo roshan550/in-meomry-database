@@ -65,4 +65,6 @@ class CricketStatsDB:
                     players.append(PlayerStats.from_dict(player_dict))
                 except:
                     continue
-        return sorted(players, key=lambda x: x.runs, reverse=True)
+        # First sort by runs (integer comparison)
+        players.sort(key=lambda x: int(x.runs), reverse=True)
+        return players

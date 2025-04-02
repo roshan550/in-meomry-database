@@ -369,5 +369,6 @@ class InMemoryDB:
     def get_all_data(self):
         """Return all key-value pairs in the database"""
         # Create a sorted list of tuples (key, value) for easier display
-        sorted_data = sorted(self.data.items(), key=lambda x: x[0])
+        # Convert numeric keys to strings for consistent sorting
+        sorted_data = sorted(self.data.items(), key=lambda x: str(x[0]))
         return sorted_data

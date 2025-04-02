@@ -14,6 +14,7 @@ class PlayerStats:
     wickets: int
     strike_rate: float
     economy: float
+    rank: int = 0
     avatar: str = "default.png"
     last_updated: str = datetime.now().isoformat()
 
@@ -34,8 +35,17 @@ class CricketStatsDB:
             player.player_id = int(player.player_id)
             # Serialize player data to JSON string
             player_data = json.dumps(player.to_dict())
-            self.db.insert(f"player:{player.player_id}", player_data)
-            self.db.insert(f"team:{player.team}:{player.player_id}", str(player.player_id))
+            key = f"player:{player.player_id}"
+            
+            # Use WAL to log the operation
+            self.db.wal.log_operation("insert", key, player_data)
+            self.db.insert(key, player_data)
+            
+            # Also log team mapping
+            team_key = f"team:{player.team}:{player.player_id}"
+            self.db.wal.log_operation("insert", team_key, str(player.player_id))
+            self.db.insert(team_key, str(player.player_id))
+            
         except ValueError as e:
             raise ValueError(f"Invalid player data: {str(e)}")
         except Exception as e:

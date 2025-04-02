@@ -1,26 +1,26 @@
-
 import streamlit as st
 import pandas as pd
 from database.cricket_stats import CricketStatsDB, PlayerStats
 
-def load_cricket_leaderboard():
-    st.set_page_config(page_title="Cricket Match Leaderboard", layout="wide")
-    
+st.set_page_config(page_title="Cricket Match Leaderboard", layout="wide") # Page config set once outside the function
+
+
+def show_cricket_page():
     # Initialize cricket stats database
     if 'cricket_db' not in st.session_state:
         st.session_state.cricket_db = CricketStatsDB(st.session_state.db)
 
     st.title("🏏 Cricket Match Leaderboard")
-    
+
     # Tab-based navigation
     tab1, tab2, tab3 = st.tabs(["Leaderboard", "Add Player", "Update Stats"])
-    
+
     with tab1:
         show_leaderboard()
-        
+
     with tab2:
         add_new_player()
-        
+
     with tab3:
         update_player_stats()
 
@@ -29,7 +29,7 @@ def show_leaderboard():
     if not players:
         st.info("No players in the database. Add some players to get started!")
         return
-        
+
     # Batting leaderboard
     st.subheader("🏏 Batting Leaderboard")
     batting_cols = ['name', 'team', 'matches', 'runs', 'strike_rate']
@@ -37,7 +37,7 @@ def show_leaderboard():
     batting_df = pd.DataFrame(batting_data, columns=batting_cols)
     st.dataframe(batting_df.sort_values('runs', ascending=False),
                 use_container_width=True)
-    
+
     # Bowling leaderboard
     st.subheader("🎯 Bowling Leaderboard")
     bowling_cols = ['name', 'team', 'matches', 'wickets', 'economy']
@@ -101,4 +101,4 @@ def update_player_stats():
                 st.error("Failed to update player stats!")
 
 if __name__ == "__main__":
-    load_cricket_leaderboard()
+    show_cricket_page()

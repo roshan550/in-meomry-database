@@ -54,6 +54,13 @@ if 'db' not in st.session_state:
 # Title with custom styling and debug information
 st.markdown("<h1 style='text-align: center; color: #FF4B4B;'> Custom In-Memory Database Explorer</h1>", unsafe_allow_html=True)
 
+# Navigation
+st.sidebar.markdown("---")
+if st.sidebar.button("🏏 Go to Cricket Leaderboard"):
+    import pages.cricket_leaderboard as cricket
+    cricket.load_cricket_leaderboard()
+    st.stop()
+
 
 # Data structure information
 st.sidebar.title("Data Structures")

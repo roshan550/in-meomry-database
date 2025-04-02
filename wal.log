@@ -1,0 +1,14 @@
+{"timestamp": "2025-03-19T17:04:29.048246", "operation": "insert", "key": 40, "value": "50"}
+{"timestamp": "2025-03-19T17:10:00.963415", "operation": "insert", "key": 2, "value": "roshan"}
+{"timestamp": "2025-03-19T17:10:23.514447", "operation": "insert", "key": 4, "value": "imran"}
+{"timestamp": "2025-03-19T17:13:52.490244", "operation": "insert", "key": 1, "value": "Roshan"}
+{"timestamp": "2025-03-19T17:14:06.087999", "operation": "insert", "key": 2, "value": "Imran"}
+{"timestamp": "2025-03-19T17:14:16.817683", "operation": "insert", "key": 3, "value": "Shaik"}
+{"timestamp": "2025-03-19T17:15:07.168341", "operation": "insert", "key": 4, "value": "Rajesh"}
+{"timestamp": "2025-03-19T17:21:01.464437", "operation": "insert", "key": 4, "value": "imran"}
+{"timestamp": "2025-03-19T17:21:14.063094", "operation": "insert", "key": 3, "value": "jawaz"}
+{"timestamp": "2025-03-19T17:21:30.453059", "operation": "insert", "key": 2, "value": "rahul"}
+{"timestamp": "2025-03-19T17:27:03.324971", "operation": "insert", "key": 1, "value": "imran"}
+{"timestamp": "2025-03-19T17:31:30.792469", "operation": "update", "key": 1, "value": "johar"}
+{"timestamp": "2025-03-19T17:31:43.823503", "operation": "delete", "key": 1, "value": null}
+{"timestamp": "2025-03-19T17:35:48.030300", "operation": "insert", "key": 4, "value": "rahul"}

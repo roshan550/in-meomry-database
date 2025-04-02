@@ -25,7 +25,7 @@ class BPlusTree:
 
         if node.leaf:
             # Insert into leaf node
-            while i >= 0 and str(key) < str(node.keys[i][0]):
+            while i >= 0 and key < node.keys[i][0]:
                 i -= 1
             node.keys.insert(i + 1, (key, value))
         else:

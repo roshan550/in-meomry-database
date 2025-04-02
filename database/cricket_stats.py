@@ -29,10 +29,17 @@ class CricketStatsDB:
         self.db = db
         
     def add_player(self, player: PlayerStats):
-        # Serialize player data to JSON string
-        player_data = json.dumps(player.to_dict())
-        self.db.insert(f"player:{player.player_id}", player_data)
-        self.db.insert(f"team:{player.team}:{player.player_id}", str(player.player_id))
+        try:
+            # Validate player ID is an integer
+            player.player_id = int(player.player_id)
+            # Serialize player data to JSON string
+            player_data = json.dumps(player.to_dict())
+            self.db.insert(f"player:{player.player_id}", player_data)
+            self.db.insert(f"team:{player.team}:{player.player_id}", str(player.player_id))
+        except ValueError as e:
+            raise ValueError(f"Invalid player data: {str(e)}")
+        except Exception as e:
+            raise Exception(f"Error adding player: {str(e)}")
         
     def get_player(self, player_id: int) -> Optional[PlayerStats]:
         data = self.db.search(f"player:{player_id}")
@@ -65,6 +72,9 @@ class CricketStatsDB:
                     players.append(PlayerStats.from_dict(player_dict))
                 except:
                     continue
-        # First sort by runs (integer comparison)
-        players.sort(key=lambda x: int(x.runs), reverse=True)
+        # Sort by runs, ensure runs is treated as integer
+        try:
+            players.sort(key=lambda x: int(x.runs) if isinstance(x.runs, (int, str)) else 0, reverse=True)
+        except Exception as e:
+            print(f"Error sorting players: {str(e)}")
         return players

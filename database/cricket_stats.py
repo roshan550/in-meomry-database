@@ -59,7 +59,7 @@ class CricketStatsDB:
         all_data = self.db.get_all_data()
         players = []
         for key, value in all_data:
-            if key.startswith("player:"):
+            if isinstance(key, str) and key.startswith("player:"):
                 try:
                     player_dict = json.loads(value)
                     players.append(PlayerStats.from_dict(player_dict))

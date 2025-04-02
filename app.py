@@ -17,7 +17,7 @@ st.set_page_config(
 )
 
 # Initialize database
-if 'db' not in st.session_state:
+if not hasattr(st.session_state, 'db'):
     st.session_state.db = InMemoryDB()
 
 # Navigation dropdown

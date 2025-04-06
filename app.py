@@ -185,23 +185,20 @@ with tab1:
     if all_data:
         # Show all database content
         df = pd.DataFrame(all_data, columns=['Key', 'Value'])
+        st.dataframe(df, use_container_width=True)
 
-        if formatted_data:
-            df = pd.DataFrame(formatted_data)
-            st.dataframe(df, use_container_width=True)
+        # Create a download button for CSV
+        csv_buffer = io.StringIO()
+        df.to_csv(csv_buffer, index=False)
+        csv_str = csv_buffer.getvalue()
 
-            # Create a download button for CSV
-            csv_buffer = io.StringIO()
-            df.to_csv(csv_buffer, index=False)
-            csv_str = csv_buffer.getvalue()
-
-            # Create a download button
-            st.download_button(
-                label="Download Data as CSV",
-                data=csv_str,
-                file_name=f"database_export_{time.strftime('%Y%m%d_%H%M%S')}.csv",
-                mime="text/csv",
-            )
+        # Create a download button
+        st.download_button(
+            label="Download Data as CSV",
+            data=csv_str,
+            file_name=f"database_export_{time.strftime('%Y%m%d_%H%M%S')}.csv",
+            mime="text/csv",
+        )
     else:
         st.info("No data in the database yet. Insert some key-value pairs to see them here.")
 

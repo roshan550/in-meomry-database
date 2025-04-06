@@ -183,8 +183,8 @@ with tab1:
 
     # Create a DataFrame for the data table
     if all_data:
-        # Show all database content
-        df = pd.DataFrame(all_data, columns=['Key', 'Value'])
+        # Show all database content and ensure keys are treated as strings
+        df = pd.DataFrame(all_data, columns=['Key', 'Value']).astype({'Key': str, 'Value': str})
         st.dataframe(df, use_container_width=True)
 
         # Create a download button for CSV

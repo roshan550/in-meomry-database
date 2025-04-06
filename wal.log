@@ -25,3 +25,5 @@
 {"timestamp": "2025-04-06T16:31:02.521723", "operation": "insert", "key": "player:177", "value": "{\"player_id\": 177, \"name\": \"Rohit\", \"team\": \"MI\", \"matches\": 2, \"runs\": 70, \"wickets\": 0, \"balls_played\": 30, \"strike_rate\": 233.33333333333334, \"economy\": 0.0, \"rank\": 0, \"avatar\": \"default.png\", \"last_updated\": \"2025-04-06T16:26:48.456406\"}"}
 {"timestamp": "2025-04-06T16:31:02.534495", "operation": "insert", "key": "team:MI:177", "value": "177"}
 {"timestamp": "2025-04-06T16:31:02.540973", "operation": "insert", "key": "team:MI:177", "value": "177"}
+{"timestamp": "2025-04-06T16:36:55.305715", "operation": "delete", "key": 4, "value": null}
+{"timestamp": "2025-04-06T16:37:06.675915", "operation": "delete", "key": 3, "value": null}

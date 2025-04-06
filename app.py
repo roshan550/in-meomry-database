@@ -118,7 +118,7 @@ with tab1:
         operation = st.radio("Select Operation", ["Insert", "Search", "Update", "Delete"])
 
     with col2:
-        key = st.number_input("Key", min_value=0, step=1)
+        key = st.text_input("Key")
         # Initialize value as empty string by default
         value = ""
         if operation in ["Insert", "Update"]:

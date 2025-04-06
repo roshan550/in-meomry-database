@@ -20,17 +20,8 @@ st.set_page_config(
 if 'db' not in st.session_state:
     st.session_state.db = InMemoryDB()
 
-# Navigation dropdown
-app_mode = st.sidebar.selectbox(
-    "Choose Application",
-    ["Database Explorer", "Cricket Leaderboard"]
-)
-
-if app_mode == "Cricket Leaderboard":
-    cricket.show_cricket_page()
-else:
-    # Database Explorer UI
-    st.markdown("<h1 style='text-align: center; color: #FF4B4B;'>Custom In-Memory Database Explorer</h1>", unsafe_allow_html=True)
+# Show Cricket Leaderboard by default
+cricket.load_cricket_leaderboard()
 
     # Map selection to internal names
     structure_map = {

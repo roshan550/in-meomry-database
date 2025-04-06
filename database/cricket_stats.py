@@ -36,16 +36,11 @@ class CricketStatsDB:
             player.player_id = int(player.player_id)
             # Serialize player data to JSON string
             player_data = json.dumps(player.to_dict())
-            key = f"player:{player.player_id}"
+            key = player.player_id
             
             # Use WAL to log the operation
             self.db.wal.log_operation("insert", key, player_data)
             self.db.insert(key, player_data)
-            
-            # Also log team mapping
-            team_key = f"team:{player.team}:{player.player_id}"
-            self.db.wal.log_operation("insert", team_key, str(player.player_id))
-            self.db.insert(team_key, str(player.player_id))
             
         except ValueError as e:
             raise ValueError(f"Invalid player data: {str(e)}")
@@ -53,7 +48,7 @@ class CricketStatsDB:
             raise Exception(f"Error adding player: {str(e)}")
         
     def get_player(self, player_id: int) -> Optional[PlayerStats]:
-        data = self.db.search(f"player:{player_id}")
+        data = self.db.search(player_id)
         if data:
             try:
                 player_dict = json.loads(data)
@@ -77,12 +72,11 @@ class CricketStatsDB:
         all_data = self.db.get_all_data()
         players = []
         for key, value in all_data:
-            if isinstance(key, str) and key.startswith("player:"):
-                try:
-                    player_dict = json.loads(value)
-                    players.append(PlayerStats.from_dict(player_dict))
-                except:
-                    continue
+            try:
+                player_dict = json.loads(value)
+                players.append(PlayerStats.from_dict(player_dict))
+            except:
+                continue
         # Sort by runs, ensure runs is treated as integer
         try:
             players.sort(key=lambda x: int(x.runs) if isinstance(x.runs, (int, str)) else 0, reverse=True)

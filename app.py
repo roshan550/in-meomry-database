@@ -183,8 +183,28 @@ with tab1:
 
     # Create a DataFrame for the data table
     if all_data:
-        df = pd.DataFrame(all_data, columns=["Key", "Value"])
-        st.dataframe(df, use_container_width=True)
+        # Convert string keys to integers for player IDs
+        formatted_data = []
+        for key, value in all_data:
+            if isinstance(key, str) and key.startswith("player:"):
+                try:
+                    player_id = int(key.split(":")[1])
+                    player_data = json.loads(value)
+                    formatted_data.append({
+                        "Player ID": player_id,
+                        "Name": player_data["name"],
+                        "Team": player_data["team"],
+                        "Matches": player_data["matches"],
+                        "Runs": player_data["runs"],
+                        "Wickets": player_data["wickets"],
+                        "Strike Rate": f"{player_data['strike_rate']:.2f}"
+                    })
+                except:
+                    continue
+
+        if formatted_data:
+            df = pd.DataFrame(formatted_data)
+            st.dataframe(df, use_container_width=True)
 
         # Create a download button for CSV
         csv_buffer = io.StringIO()

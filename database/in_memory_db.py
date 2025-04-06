@@ -98,14 +98,16 @@ class InMemoryDB:
     def insert(self, key, value):
         try:
             start_time = time.time()
-            self.data[key] = value
+            # Convert key to string if it isn't already
+            str_key = str(key)
+            self.data[str_key] = value
 
             if self.current_structure == "btree":
-                self.btree.insert(key, value)
+                self.btree.insert(str_key, value)
             elif self.current_structure == "avl":
-                self.avl_tree.insert(key, value)
+                self.avl_tree.insert(str_key, value)
             else:
-                self.skip_list.insert(key, value)
+                self.skip_list.insert(str_key, value)
 
             end_time = time.time()
             # Add to used structures set to track which structures have been used
@@ -150,12 +152,13 @@ class InMemoryDB:
 
     def delete(self, key):
         """Delete a key-value pair from the database"""
-        if key not in self.data:
+        str_key = str(key)
+        if str_key not in self.data:
             return False
 
         try:
             start_time = time.time()
-            del self.data[key]
+            del self.data[str_key]
             self._sync_data()  # Rebuild current structure without the deleted key
 
             end_time = time.time()
@@ -175,13 +178,14 @@ class InMemoryDB:
         result = None
         try:
             start_time = time.time()
+            str_key = str(key)
 
             if self.current_structure == "btree":
-                result = self.btree.search(key)
+                result = self.btree.search(str_key)
             elif self.current_structure == "avl":
-                result = self.avl_tree.search(key)
+                result = self.avl_tree.search(str_key)
             else:
-                result = self.skip_list.search(key)
+                result = self.skip_list.search(str_key)
 
             end_time = time.time()
             # Add to used structures set

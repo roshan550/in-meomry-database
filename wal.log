@@ -12,3 +12,4 @@
 {"timestamp": "2025-03-19T17:31:30.792469", "operation": "update", "key": 1, "value": "johar"}
 {"timestamp": "2025-03-19T17:31:43.823503", "operation": "delete", "key": 1, "value": null}
 {"timestamp": "2025-03-19T17:35:48.030300", "operation": "insert", "key": 4, "value": "rahul"}
+{"timestamp": "2025-04-06T16:20:18.314173", "operation": "insert", "key": "player:18", "value": "{\"player_id\": 18, \"name\": \"Rajesh\", \"team\": \"csk\", \"matches\": 2, \"runs\": 60, \"wickets\": 0, \"strike_rate\": 200.0, \"economy\": 0.0, \"rank\": 0, \"avatar\": \"default.png\", \"last_updated\": \"2025-04-06T16:19:23.623851\"}"}

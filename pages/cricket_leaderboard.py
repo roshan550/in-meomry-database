@@ -8,9 +8,14 @@ def load_cricket_leaderboard():
     st.markdown("""
     <style>
     .stDataFrame {
-        background-color: #f0f2f6;
         padding: 1rem;
         border-radius: 10px;
+    }
+    .stApp {
+        background-color: transparent !important;
+    }
+    div[data-testid="stToolbar"] {
+        display: none;
     }
     .main .block-container {
         padding-top: 2rem;
@@ -118,7 +123,7 @@ def add_new_player():
             name = st.text_input("Player Name", key="name")
             player_id = st.number_input("Player ID", min_value=1, step=1)
             matches = st.number_input("Matches", min_value=0, step=1)
-            strike_rate = st.number_input("Strike Rate", min_value=0.0, step=0.1)
+            balls_played = st.number_input("Balls Played", min_value=0, step=1)
         with col2:
             team = st.text_input("Team", key="team")
             runs = st.number_input("Runs", min_value=0, step=1)
@@ -135,7 +140,8 @@ def add_new_player():
                     matches=matches,
                     runs=runs,
                     wickets=wickets,
-                    strike_rate=strike_rate,
+                    balls_played=balls_played,
+                    strike_rate=(runs * 100.0 / balls_played) if balls_played > 0 else 0.0,
                     economy=economy
                 )
                 st.session_state.cricket_db.add_player(player)

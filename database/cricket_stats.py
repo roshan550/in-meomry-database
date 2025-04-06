@@ -12,8 +12,9 @@ class PlayerStats:
     matches: int
     runs: int
     wickets: int
-    strike_rate: float
-    economy: float
+    balls_played: int = 0
+    strike_rate: float = 0.0
+    economy: float = 0.0
     rank: int = 0
     avatar: str = "default.png"
     last_updated: str = datetime.now().isoformat()

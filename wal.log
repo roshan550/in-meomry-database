@@ -13,3 +13,11 @@
 {"timestamp": "2025-03-19T17:31:43.823503", "operation": "delete", "key": 1, "value": null}
 {"timestamp": "2025-03-19T17:35:48.030300", "operation": "insert", "key": 4, "value": "rahul"}
 {"timestamp": "2025-04-06T16:20:18.314173", "operation": "insert", "key": "player:18", "value": "{\"player_id\": 18, \"name\": \"Rajesh\", \"team\": \"csk\", \"matches\": 2, \"runs\": 60, \"wickets\": 0, \"strike_rate\": 200.0, \"economy\": 0.0, \"rank\": 0, \"avatar\": \"default.png\", \"last_updated\": \"2025-04-06T16:19:23.623851\"}"}
+{"timestamp": "2025-04-06T16:23:33.987653", "operation": "insert", "key": "player:25", "value": "{\"player_id\": 25, \"name\": \"Zeeshan\", \"team\": \"RCB\", \"matches\": 2, \"runs\": 103, \"wickets\": 0, \"strike_rate\": 250.0, \"economy\": 0.0, \"rank\": 0, \"avatar\": \"default.png\", \"last_updated\": \"2025-04-06T16:21:43.634896\"}"}
+{"timestamp": "2025-04-06T16:23:34.021517", "operation": "insert", "key": "player:25", "value": "{\"player_id\": 25, \"name\": \"Zeeshan\", \"team\": \"RCB\", \"matches\": 2, \"runs\": 103, \"wickets\": 0, \"strike_rate\": 250.0, \"economy\": 0.0, \"rank\": 0, \"avatar\": \"default.png\", \"last_updated\": \"2025-04-06T16:21:43.634896\"}"}
+{"timestamp": "2025-04-06T16:23:34.028474", "operation": "insert", "key": "team:RCB:25", "value": "25"}
+{"timestamp": "2025-04-06T16:23:34.039512", "operation": "insert", "key": "team:RCB:25", "value": "25"}
+{"timestamp": "2025-04-06T16:24:07.222671", "operation": "insert", "key": "player:25", "value": "{\"player_id\": 25, \"name\": \"Zeeshan\", \"team\": \"RCB\", \"matches\": 3, \"runs\": 128, \"wickets\": 0, \"strike_rate\": 42.666666666666664, \"economy\": 0.0, \"rank\": 0, \"avatar\": \"default.png\", \"last_updated\": \"2025-04-06T16:21:43.634896\"}"}
+{"timestamp": "2025-04-06T16:24:07.261917", "operation": "insert", "key": "player:25", "value": "{\"player_id\": 25, \"name\": \"Zeeshan\", \"team\": \"RCB\", \"matches\": 3, \"runs\": 128, \"wickets\": 0, \"strike_rate\": 42.666666666666664, \"economy\": 0.0, \"rank\": 0, \"avatar\": \"default.png\", \"last_updated\": \"2025-04-06T16:21:43.634896\"}"}
+{"timestamp": "2025-04-06T16:24:07.270680", "operation": "insert", "key": "team:RCB:25", "value": "25"}
+{"timestamp": "2025-04-06T16:24:07.286960", "operation": "insert", "key": "team:RCB:25", "value": "25"}

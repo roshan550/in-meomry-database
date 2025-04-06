@@ -23,8 +23,8 @@ if 'db' not in st.session_state:
 # Show Cricket Leaderboard by default
 cricket.load_cricket_leaderboard()
 
-    # Map selection to internal names
-    structure_map = {
+# Map selection to internal names
+structure_map = {
         "B+ Tree": "btree",
         "AVL Tree": "avl",
         "Skip List": "skip_list"

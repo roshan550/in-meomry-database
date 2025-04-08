@@ -52,3 +52,10 @@
 {"timestamp": "2025-04-08T15:11:25.544436", "operation": "delete", "key": "6", "value": null}
 {"timestamp": "2025-04-08T15:11:41.022782", "operation": "delete", "key": "8", "value": null}
 {"timestamp": "2025-04-08T15:12:01.968221", "operation": "delete", "key": "4", "value": null}
+{"timestamp": "2025-04-08T15:26:32.528920", "operation": "insert", "key": 16, "value": "{\"player_id\": 16, \"name\": \"raheem\", \"team\": \"rcb\", \"matches\": 4, \"runs\": 88, \"wickets\": 0, \"balls_played\": 30, \"strike_rate\": 293.3333333333333, \"economy\": 0.0, \"rank\": 0, \"avatar\": \"default.png\", \"last_updated\": \"2025-04-08T15:10:42.287522\"}"}
+{"timestamp": "2025-04-08T15:26:32.555558", "operation": "insert", "key": 16, "value": "{\"player_id\": 16, \"name\": \"raheem\", \"team\": \"rcb\", \"matches\": 4, \"runs\": 88, \"wickets\": 0, \"balls_played\": 30, \"strike_rate\": 293.3333333333333, \"economy\": 0.0, \"rank\": 0, \"avatar\": \"default.png\", \"last_updated\": \"2025-04-08T15:10:42.287522\"}"}
+{"timestamp": "2025-04-08T15:27:30.556824", "operation": "delete", "key": "16", "value": null}
+{"timestamp": "2025-04-08T15:28:55.021564", "operation": "clear", "key": null, "value": null}
+{"timestamp": "2025-04-08T16:18:23.674728", "operation": "clear", "key": null, "value": null}
+{"timestamp": "2025-04-08T16:18:48.510276", "operation": "insert", "key": "cat", "value": "doll"}
+{"timestamp": "2025-04-08T16:19:30.452215", "operation": "delete", "key": "cat", "value": null}

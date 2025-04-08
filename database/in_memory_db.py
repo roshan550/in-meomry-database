@@ -158,13 +158,10 @@ class InMemoryDB:
 
     def delete(self, key):
         """Delete a key-value pair from the database"""
-        # Try both original key and string version
-        if key in self.data:
-            str_key = key
-        else:
-            str_key = str(key)
-            if str_key not in self.data:
-                return False
+        # Always convert key to string for consistent handling
+        str_key = str(key)
+        if str_key not in self.data:
+            return False
 
         try:
             start_time = time.time()

@@ -193,6 +193,8 @@ with tab1:
                     st.session_state.db.insert(key, value)
                 st.success("✅ CSV data imported successfully!")
                 st.rerun()
+        except Exception as e:
+            st.error(f"Error processing CSV file: {str(e)}")
 
     # After the operation section, add the data table display
     st.markdown("---")

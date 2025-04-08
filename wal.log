@@ -32,3 +32,13 @@
 {"timestamp": "2025-04-08T14:35:24.463495", "operation": "delete", "key": "team:RCB:25", "value": null}
 {"timestamp": "2025-04-08T14:35:49.594536", "operation": "delete", "key": "player:25", "value": null}
 {"timestamp": "2025-04-08T14:37:07.985123", "operation": "delete", "key": "player:18", "value": null}
+{"timestamp": "2025-04-08T14:52:54.908804", "operation": "insert", "key": "1", "value": "{\"Value\":\"Roshan\"}"}
+{"timestamp": "2025-04-08T14:52:54.934752", "operation": "insert", "key": "2", "value": "{\"Value\":\"Rahul\"}"}
+{"timestamp": "2025-04-08T14:52:54.939357", "operation": "insert", "key": "3", "value": "{\"Value\":\"anjan\"}"}
+{"timestamp": "2025-04-08T14:52:54.944154", "operation": "insert", "key": "4", "value": "{\"Value\":\"kashif\"}"}
+{"timestamp": "2025-04-08T14:52:54.952282", "operation": "insert", "key": "5", "value": "{\"Value\":\"Rohit\"}"}
+{"timestamp": "2025-04-08T14:52:54.957308", "operation": "insert", "key": "6", "value": "{\"Value\":\"musa\"}"}
+{"timestamp": "2025-04-08T14:52:54.961322", "operation": "insert", "key": "7", "value": "{\"Value\":\"essa\"}"}
+{"timestamp": "2025-04-08T14:52:54.966648", "operation": "insert", "key": "8", "value": "{\"Value\":\"maryam\"}"}
+{"timestamp": "2025-04-08T14:52:54.972862", "operation": "insert", "key": "9", "value": "{\"Value\":\"jami\"}"}
+{"timestamp": "2025-04-08T14:52:54.977305", "operation": "insert", "key": "10", "value": "{\"Value\":\"rithvik\"}"}

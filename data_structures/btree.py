@@ -22,12 +22,13 @@ class BPlusTree:
 
     def _insert_non_full(self, node, key, value):
         i = len(node.keys) - 1
+        str_key = str(key)
 
         if node.leaf:
             # Insert into leaf node
-            while i >= 0 and str(key) < str(node.keys[i][0]):
+            while i >= 0 and str_key < str(node.keys[i][0]):
                 i -= 1
-            node.keys.insert(i + 1, (key, value))
+            node.keys.insert(i + 1, (str_key, value))
         else:
             # Find the child to recurse to
             while i >= 0 and str(key) < str(node.keys[i][0]):
@@ -72,15 +73,16 @@ class BPlusTree:
         parent.children.insert(child_index + 1, new_node)
 
     def search(self, key):
+        str_key = str(key)
         node = self.root
         while not node.leaf:
             i = 0
-            while i < len(node.keys) and str(key) >= str(node.keys[i][0]):
+            while i < len(node.keys) and str_key >= str(node.keys[i][0]):
                 i += 1
             node = node.children[i]
 
         # Search within leaf node
         for k, v in node.keys:
-            if str(k) == str(key):
+            if str(k) == str_key:
                 return v
         return None

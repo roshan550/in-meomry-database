@@ -99,15 +99,18 @@ class InMemoryDB:
         try:
             start_time = time.time()
             # Convert key to string if it isn't already
+            # Always convert key to string
             str_key = str(key)
-            self.data[str_key] = value
+            # Convert value to string if it's not already
+            str_value = str(value) if not isinstance(value, str) else value
+            self.data[str_key] = str_value
 
             if self.current_structure == "btree":
-                self.btree.insert(str_key, value)
+                self.btree.insert(str_key, str_value)
             elif self.current_structure == "avl":
-                self.avl_tree.insert(str_key, value)
+                self.avl_tree.insert(str_key, str_value)
             else:
-                self.skip_list.insert(str_key, value)
+                self.skip_list.insert(str_key, str_value)
 
             end_time = time.time()
             # Add to used structures set to track which structures have been used
@@ -123,12 +126,15 @@ class InMemoryDB:
 
     def update(self, key, value):
         """Update an existing key with a new value"""
-        if key not in self.data:
+        str_key = str(key)
+        if str_key not in self.data:
             return False
 
         try:
             start_time = time.time()
-            self.data[key] = value
+            # Convert value to string if it's not already
+            str_value = str(value) if not isinstance(value, str) else value
+            self.data[str_key] = str_value
 
             if self.current_structure == "btree":
                 self.btree.insert(key, value)  # B+ Tree insert handles updates
@@ -182,6 +188,7 @@ class InMemoryDB:
         result = None
         try:
             start_time = time.time()
+            # Always convert key to string for consistent searching
             str_key = str(key)
 
             if self.current_structure == "btree":

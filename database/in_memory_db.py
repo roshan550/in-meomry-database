@@ -384,3 +384,11 @@ class InMemoryDB:
         # Convert numeric keys to strings for consistent sorting
         sorted_data = sorted(self.data.items(), key=lambda x: str(x[0]))
         return sorted_data
+
+    def clear(self):
+        """Clear all data from the database"""
+        self.data.clear()
+        self.btree = BPlusTree(order=4)
+        self.avl_tree = AVLTree()
+        self.skip_list = SkipList()
+        self.wal.log_operation("clear", None, None)

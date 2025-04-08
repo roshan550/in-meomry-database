@@ -31,7 +31,7 @@ with tab1:
     }
 
     st.sidebar.title("Data Structures")
-    
+
     data_structure_info = {
         "B+ Tree": """
         🌳 **B+ Tree**
@@ -180,14 +180,14 @@ with tab1:
     # CSV Import Section
     st.markdown("---")
     st.header("Import CSV Data")
-    
+
     uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
     if uploaded_file is not None:
         try:
             df = pd.read_csv(uploaded_file)
             st.write("Preview of uploaded data:")
             st.dataframe(df.head())
-            
+
             if st.button("Import to Database"):
                 for idx, row in df.iterrows():
                     # Use the first column as key and the rest as JSON value
@@ -217,13 +217,19 @@ with tab1:
         df.to_csv(csv_buffer, index=False)
         csv_str = csv_buffer.getvalue()
 
-        # Create a download button
-        st.download_button(
-            label="Download Data as CSV",
-            data=csv_str,
-            file_name=f"database_export_{time.strftime('%Y%m%d_%H%M%S')}.csv",
-            mime="text/csv",
-        )
+        col1, col2 = st.columns(2)
+        with col1:
+            # Create a download button
+            st.download_button(
+                label="Download Data as CSV",
+                data=csv_str,
+                file_name=f"database_export_{time.strftime('%Y%m%d_%H%M%S')}.csv",
+                mime="text/csv",
+            )
+        with col2:
+            if st.button("Clear Database", type="primary"):
+                st.session_state.db.clear()
+                st.rerun()
     else:
         st.info("No data in the database yet. Insert some key-value pairs to see them here.")
 

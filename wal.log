@@ -42,3 +42,9 @@
 {"timestamp": "2025-04-08T14:52:54.966648", "operation": "insert", "key": "8", "value": "{\"Value\":\"maryam\"}"}
 {"timestamp": "2025-04-08T14:52:54.972862", "operation": "insert", "key": "9", "value": "{\"Value\":\"jami\"}"}
 {"timestamp": "2025-04-08T14:52:54.977305", "operation": "insert", "key": "10", "value": "{\"Value\":\"rithvik\"}"}
+{"timestamp": "2025-04-08T15:00:57.293956", "operation": "delete", "key": "2", "value": null}
+{"timestamp": "2025-04-08T15:02:50.239549", "operation": "delete", "key": "1", "value": null}
+{"timestamp": "2025-04-08T15:03:21.189542", "operation": "delete", "key": "7", "value": null}
+{"timestamp": "2025-04-08T15:03:28.389476", "operation": "delete", "key": "10", "value": null}
+{"timestamp": "2025-04-08T15:03:56.489341", "operation": "delete", "key": "3", "value": null}
+{"timestamp": "2025-04-08T15:04:01.412833", "operation": "delete", "key": "9", "value": null}

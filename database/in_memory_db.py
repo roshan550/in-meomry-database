@@ -391,4 +391,11 @@ class InMemoryDB:
         self.btree = BPlusTree(order=4)
         self.avl_tree = AVLTree()
         self.skip_list = SkipList()
+        self.performance_metrics = {
+            "btree": {"insert": [], "search": [], "update": [], "delete": []},
+            "avl": {"insert": [], "search": [], "update": [], "delete": []},
+            "skip_list": {"insert": [], "search": [], "update": [], "delete": []}
+        }
+        # Reset WAL
+        self.wal = WAL()
         self.wal.log_operation("clear", None, None)

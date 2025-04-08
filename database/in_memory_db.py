@@ -160,7 +160,11 @@ class InMemoryDB:
         """Delete a key-value pair from the database"""
         # Always convert key to string for consistent handling
         str_key = str(key)
+        print(f"Attempting to delete key: {str_key}")
+        print(f"Available keys: {list(self.data.keys())}")
+        
         if str_key not in self.data:
+            print(f"Key {str_key} not found in database")
             return False
 
         try:

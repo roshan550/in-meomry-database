@@ -128,7 +128,8 @@ with tab1:
         if st.button("Execute", use_container_width=True):
             start_time = time.time()
             success = False
-            result_msg = ""
+            result_msg = "Operation failed"  # Default message
+            execution_time = 0
 
             if operation == "Insert" and value:
                 st.session_state.db.insert(key, value)

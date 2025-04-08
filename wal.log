@@ -27,3 +27,8 @@
 {"timestamp": "2025-04-06T16:31:02.540973", "operation": "insert", "key": "team:MI:177", "value": "177"}
 {"timestamp": "2025-04-06T16:36:55.305715", "operation": "delete", "key": 4, "value": null}
 {"timestamp": "2025-04-06T16:37:06.675915", "operation": "delete", "key": 3, "value": null}
+{"timestamp": "2025-04-06T18:16:59.246544", "operation": "delete", "key": "player:177", "value": null}
+{"timestamp": "2025-04-08T14:34:44.891871", "operation": "delete", "key": "team:MI:177", "value": null}
+{"timestamp": "2025-04-08T14:35:24.463495", "operation": "delete", "key": "team:RCB:25", "value": null}
+{"timestamp": "2025-04-08T14:35:49.594536", "operation": "delete", "key": "player:25", "value": null}
+{"timestamp": "2025-04-08T14:37:07.985123", "operation": "delete", "key": "player:18", "value": null}

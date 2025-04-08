@@ -127,6 +127,7 @@ with tab1:
     with col3:
         if st.button("Execute", use_container_width=True):
             start_time = time.time()
+            success = False
 
             if operation == "Insert" and value:
                 st.session_state.db.insert(key, value)

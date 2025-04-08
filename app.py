@@ -174,6 +174,26 @@ with tab1:
                 else:
                     st.info("Operation completed, but there's no data to visualize.")
 
+    # CSV Import Section
+    st.markdown("---")
+    st.header("Import CSV Data")
+    
+    uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
+    if uploaded_file is not None:
+        try:
+            df = pd.read_csv(uploaded_file)
+            st.write("Preview of uploaded data:")
+            st.dataframe(df.head())
+            
+            if st.button("Import to Database"):
+                for idx, row in df.iterrows():
+                    # Use the first column as key and the rest as JSON value
+                    key = str(row.iloc[0])
+                    value = row.iloc[1:].to_json()
+                    st.session_state.db.insert(key, value)
+                st.success("✅ CSV data imported successfully!")
+                st.rerun()
+
     # After the operation section, add the data table display
     st.markdown("---")
     st.header("Database Content")

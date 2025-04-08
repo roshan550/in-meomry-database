@@ -387,15 +387,28 @@ class InMemoryDB:
 
     def clear(self):
         """Clear all data from the database"""
+        # Clear main data structure
         self.data.clear()
+        
+        # Reset all data structures
         self.btree = BPlusTree(order=4)
         self.avl_tree = AVLTree()
         self.skip_list = SkipList()
+        
+        # Reset performance metrics
         self.performance_metrics = {
             "btree": {"insert": [], "search": [], "update": [], "delete": []},
             "avl": {"insert": [], "search": [], "update": [], "delete": []},
             "skip_list": {"insert": [], "search": [], "update": [], "delete": []}
         }
-        # Reset WAL
+        
+        # Reset WAL by recreating it and clearing the file
         self.wal = WAL()
+        try:
+            with open(self.wal.filename, 'w') as f:
+                f.truncate(0)  # Clear the file contents
+        except Exception as e:
+            print(f"Error clearing WAL file: {e}")
+            
+        # Log the clear operation in the fresh WAL
         self.wal.log_operation("clear", None, None)

@@ -1,6 +1,5 @@
 import streamlit as st
 from database.in_memory_db import InMemoryDB
-import pages.cricket_leaderboard as cricket
 import plotly.graph_objects as go
 import time
 import pandas as pd
@@ -9,8 +8,13 @@ import io
 import base64
 
 # Page configuration
+# st.set_page_config(
+#     page_title="Database Explorer ",
+#     layout="wide",
+#     initial_sidebar_state="expanded"
+# )
 st.set_page_config(
-    page_title="Database Explorer & Cricket Stats",
+    page_title="Custom In-Memory Database Explorer",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -18,9 +22,12 @@ st.set_page_config(
 # Initialize the database in session state
 if 'db' not in st.session_state:
     st.session_state.db = InMemoryDB()
+    
+#  Title with custom styling and debug information
+st.markdown("<h1 style='text-align: center; color: #FF4B4B;'> Custom In-Memory Database Explorer</h1>", unsafe_allow_html=True)
 
 # Create tabs for different sections
-tab1, tab2 = st.tabs(["🗄️ Data Visualizer", "🏏 Cricket Stats"])
+tab1 = st.tabs(["🗄️ Data Visualizer"])[0]
 
 with tab1:
     # Map selection to internal names
@@ -305,5 +312,3 @@ with tab1:
     </style>
     """, unsafe_allow_html=True)
 
-with tab2:
-    cricket.load_cricket_leaderboard()
